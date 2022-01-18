@@ -7,7 +7,7 @@ import {
   ListItem,
   ListItemText,
   Divider,
-  Button
+  Button,
 } from "@material-ui/core";
 
 export default function AttachmentsDialog(props) {
@@ -16,11 +16,8 @@ export default function AttachmentsDialog(props) {
   const [attachments, setAttachments] = React.useState([]);
 
   React.useEffect(() => {
-    let serverUrl =
-      "https://37ac4910-074b-4faf-bde8-c37c90795f6b.mock.pstmn.io";
-
     Axios.get(
-      `${serverUrl}/GetAttachments?queryString=${props.queryString}`
+      `${props.serverUrl}/GetAttachments?queryString=${props.queryString}`
     ).then((res) => {
       setAttachments(res.data);
     });
